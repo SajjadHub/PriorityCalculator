@@ -1,0 +1,18 @@
+[
+  {
+    "proName": "Priority Calculator",
+    "proWeight": 10,
+    "assignments": [
+      {
+        "assigName": "test",
+        "assigWeight": 12,
+        "deadline": "2020/6/7"
+      }
+    ]
+  },
+  {
+    "proName": "Machine Learning",
+    "proWeight": 12,
+    "assignments": []
+  }
+]
