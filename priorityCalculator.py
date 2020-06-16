@@ -32,8 +32,7 @@ class user():
                     self.projects[i].addAssig(assignment(
                                               assig['assigName'],
                                               assig['assigWeight'],
-                                              assig['deadline']
-                        ))
+                                              assig['deadline']))
 
     def addProject(self, project):
         """Adds a json project to index"""
@@ -47,7 +46,8 @@ class user():
         self.updateJson()
 
     def updateJson(self):
-        """Updates the index json to include all projects (for when changes are made)"""
+        """Updates the index json to include all projects (for when changes are\
+                made)"""
         with open("index.txt", "w") as jsonFile:
             json.dump(self.projects, jsonFile, indent=2,
                       cls=projectEncoder)

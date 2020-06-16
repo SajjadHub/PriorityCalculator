@@ -1,0 +1,36 @@
+{
+  "name": "prioritycalculator",
+  "version": "1.0.0",
+  "description": "Be more productive with better scheduling ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SajjadHub/PriorityCalculator.git"
+  },
+  "keywords": [
+    "project",
+    "python",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Sajjad Al-Kazzaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SajjadHub/PriorityCalculator/issues"
+  },
+  "homepage": "https://github.com/SajjadHub/PriorityCalculator#readme",
+  "devDependencies": {
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-vue": "^6.2.2"
+  },
+  "dependencies": {
+    "flow-bin": "^0.127.0",
+    "tern": "^0.24.3"
+  }
+}
