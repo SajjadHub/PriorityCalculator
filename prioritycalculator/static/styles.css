@@ -1,0 +1,9 @@
+#header {
+  margin: 0px auto;
+  display: block;
+  text-align: center;
+}
+
+#home-link, #login-link {
+  border-radius: 10px;
+}

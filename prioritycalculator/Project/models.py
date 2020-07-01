@@ -13,3 +13,7 @@ class Assignment(models.Model):
     name = models.CharField(max_length=60)
     weight = models.IntegerField()
     deadline = models.DateField()
+    completed = models.BooleanField(default=False)
+    priority = models.DecimalField(max_digits=5,
+                                   decimal_places=2,
+                                   default=-1.0)
