@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Assignment Name</th>
+          <th>Weight</th>
+          <th>Deadline</th>
+        </tr>
+      </thead>
+      {% for item in data %}
+      <tbody>
+        <td>{{ item.name }}</td>
+        <td>{{ item.weight }}</td>
+        <td>{{ item.deadline }}</td>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+
+
+  <div class="col text-center">
+    <form action="." method='POST'>
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input class="btn btn-dark" type="submit" value='Add another assignment' />
+    </form>
+    <br>
+    <a class="btn btn-dark" href="{% url 'intake' %}">Add another project</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="row">
+  <div class="col">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Project Name</th>
+          <th>Project Weight</th>
+        </tr>
+      </thead>
+      {% for item in data %}
+      <tbody>
+        <td>{{ item.name }}</td>
+        <td>{{ item.weight }}</td>
+      </tbody>
+      {% endfor %}
+    </table>
+  </div>
+
+  <div class="col">
+
+    <form action="" method='POST'>
+      {{ form.as_p }}
+      {% csrf_token %}
+      <input class="btn btn-primary" name="pro" type="submit" value='Add another project' />
+      <input class="btn btn-primary" name="assig" type="submit" value='Add assignment' />
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
