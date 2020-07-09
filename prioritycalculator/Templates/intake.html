@@ -5,7 +5,7 @@
 {% block content %}
 <div class="row">
   <div class="col">
-    <table class="table">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th>Project Name</th>
@@ -13,10 +13,12 @@
         </tr>
       </thead>
       {% for item in data %}
-      <tbody>
-        <td>{{ item.name }}</td>
-        <td>{{ item.weight }}</td>
-      </tbody>
+        <tbody>
+          <tr id="project-row" data-href="{% url "assignment_intake" project=item.name %}">
+            <td>{{ item.name }}</td>
+            <td>{{ item.weight }}</td>
+          </tr>
+        </tbody>
       {% endfor %}
     </table>
   </div>
@@ -26,8 +28,8 @@
     <form action="" method='POST'>
       {{ form.as_p }}
       {% csrf_token %}
-      <input class="btn btn-primary" name="pro" type="submit" value='Add another project' />
-      <input class="btn btn-primary" name="assig" type="submit" value='Add assignment' />
+      <input class="btn btn-dark" name="pro" type="submit" value='Add another project' />
+      <input class="btn btn-dark" name="assig" type="submit" value='Add assignment' />
     </form>
 
   </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ProjectForm, AssignmentForm
 from .models import Project, Assignment
 
@@ -8,38 +8,50 @@ from .models import Project, Assignment
 def assignment_intake_view(request, project="none", *args, **kwargs):
     form = AssignmentForm(request.POST or None)
     if form.is_valid():
-        form.save()
+        full_form = form.save()
+        full_form.projectName = project
+        full_form.save()
         form = AssignmentForm()
 
     try:
-        data = Assignment.objects.get(projectName=project)
+        data = Assignment.objects.filter(projectName=project)
     except Assignment.DoesNotExist:
+        data = None
+
+    context = {
+            'form': form,
+            'data': data,
+            'project': project
+            }
+    return render(request, "assignment_intake.html", context)
+
+
+def intake_view(request, *args, **kwargs):
+    print(request, request.POST)
+    if request.method == "POST" and "assig" in request.POST:
+        form = ProjectForm(request.POST)
+        if form.is_valid():
+            form.save()
+            response = redirect(request.POST['name'] + '/', permanent=True)
+            print(response)
+        return response
+
+    form = ProjectForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        form = ProjectForm()
+
+    try:
+        data = Project.objects.all()
+    except Project.DoesNotExist:
         data = None
 
     context = {
             'form': form,
             'data': data
             }
-    return render(request, "assignment_intake.html", context)
+    return render(request, "intake.html", context)
 
-
-def intake_view(request, project="none", *args, **kwargs):
-    print(request)
-    if 'assig' in request.POST:
-        assignment_intake_view(request, project)
-    else:
-        print(request.POST)
-        form = ProjectForm(request.POST or None)
-        data = Project.objects.all()
-        if form.is_valid():
-            form.save()
-            form = ProjectForm()
-
-        context = {
-                'form': form,
-                'data': data
-                }
-        return render(request, "intake.html", context)
 
 
 def home_view(request, *args, **kwargs):

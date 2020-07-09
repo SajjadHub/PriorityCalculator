@@ -7,3 +7,9 @@
 #home-link, #login-link {
   border-radius: 10px;
 }
+
+#project-header {
+  margin: 50px auto;
+  display: block;
+  text-align: center;
+}

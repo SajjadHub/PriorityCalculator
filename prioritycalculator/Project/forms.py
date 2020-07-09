@@ -10,14 +10,15 @@ class ProjectForm(forms.ModelForm):
                 'name',
                 'weight'
                 }
+    field_order = ['name', 'weight']
 
 
 class AssignmentForm(forms.ModelForm):
     class Meta:
         model = Assignment
         fields = {
-                'projectName',
                 'name',
                 'weight',
                 'deadline'
                 }
+    field_order = ['name', 'weight', 'deadline']
