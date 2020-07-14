@@ -14,22 +14,35 @@
 
     <img src="{% static 'priority.png' %}" alt="Logo" class="img-fluid" id="header">
 
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-top">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark navbar-top sticky-top">
       <ul class="navbar-nav">
+
         <li class="nav-item">
           <a class="nav-link btn-outline-secondary" id="home-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item btn-outline-secondary" id="signup-link">
+          <a class="nav-link" href="{% url 'signup' %}">Signup</a>
         </li>
         <li class="nav-item btn-outline-secondary" id="login-link">
           <a class="nav-link" href="{% url 'login' %}">Login</a>
         </li>
+        <li class="nav-item btn-outline-secondary" id="logout-link">
+          <a class="nav-link" href="{% url 'logout_success' %}">Logout</a>
+        </li>
+        <li class="nav-item btn-outline-secondary" id="intake-link">
+          <a class="nav-link" href="{% url 'intake' %}">Add Projects</a>
+        </li>
+        <li class="nav-item btn-outline-secondary" id="schedule-link">
+          <a class="nav-link" href="{% url 'schedule' %}">Schedule</a>
+        </li>
+
       </ul>
     </nav>
 
-    <br>
-    
-    {% block content %}
-    <h1>none</h1>
-    {% endblock %}
+
+      {% block content %}
+      <h1>none</h1>
+      {% endblock %}
 
   </body>
 </html>

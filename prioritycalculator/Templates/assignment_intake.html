@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
@@ -14,6 +15,8 @@
           <th>Assignment Name</th>
           <th>Weight</th>
           <th>Deadline</th>
+          <th>Priority</th>
+          <th>Completed</th>
         </tr>
       </thead>
       {% for item in data %}
@@ -21,20 +24,22 @@
         <td>{{ item.name }}</td>
         <td>{{ item.weight }}</td>
         <td>{{ item.deadline }}</td>
+        <td>{{ item.priority }}</td>
+        <td>{{ item.completed }}</td>
       </tbody>
       {% endfor %}
     </table>
   </div>
 
 
-  <div class="col text-center">
+  <div class="col">
     <form action="." method='POST'>
-      {{ form.as_p }}
+      {{ form|crispy }}
       {% csrf_token %}
       <input class="btn btn-dark" type="submit" value='Add another assignment' />
+    <a class="btn btn-dark" href="{% url 'intake' %}">Add another project</a>
     </form>
     <br>
-    <a class="btn btn-dark" href="{% url 'intake' %}">Add another project</a>
   </div>
 </div>
 

@@ -1,20 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
-<form method="post" class="text-center">
-  {% csrf_token %}
-  <div class="form-group">
-    <label for="username">Username:</label>
-    <input type="username" placeholder="Enter username">
-  </div>
+<div class="container">
+  <form method="post" class="text-center">
+    {% csrf_token %}
+    {{ form|crispy }}
 
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" placeholder="Enter password">
-  </div>
-
-  <button type="submit" class="btn btn-secondary">Login</button>
-</form>
+    <div id="login-button" class="container row">
+      <div class="col">
+        <br>
+        <button type="submit" class="btn btn-dark">Login</button>
+      </div>
+      <div class="col">
+        <h6>Don't have an account?</h6>
+        <a class="btn btn-dark" href="{% url "signup" %}">Signup</a>
+      </div>
+    </div>
+  </form>
+  <br>
+  
+  {% if form_result %}
+  <h5 class="text-center" id='login_fail'>{{ form_result }}</h5>
+  {% endif %}
+</div>
 {% endblock %}

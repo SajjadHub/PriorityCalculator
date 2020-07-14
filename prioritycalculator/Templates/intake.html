@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block content %}
+<div class="row">
+  <h1 id="project-header">Projects</h1>
+</div>
 <div class="row">
   <div class="col">
     <table class="table table-hover">
@@ -26,8 +30,8 @@
   <div class="col">
 
     <form action="" method='POST'>
-      {{ form.as_p }}
       {% csrf_token %}
+      {{ form|crispy }}
       <input class="btn btn-dark" name="pro" type="submit" value='Add another project' />
       <input class="btn btn-dark" name="assig" type="submit" value='Add assignment' />
     </form>

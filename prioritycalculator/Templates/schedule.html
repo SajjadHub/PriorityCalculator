@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Assignment Name</th>
+      <th>Weight</th>
+      <th>Deadline</th>
+      <th>Priority</th>
+      <th>Completed</th>
+    </tr>
+  </thead>
+  {% for item in data %}
+  <tbody>
+    <td>{{ item.project.name }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.weight }}</td>
+    <td>{{ item.deadline }}</td>
+    <td>{{ item.priority }}</td>
+    <td><label><input type="checkbox" value={{ item.completed }}></label></td>
+  </tbody>
+  {% endfor %}
+</table>
+{% endblock %}
