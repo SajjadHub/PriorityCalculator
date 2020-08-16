@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="{% static 'main.js' %}"></script>
+    <title>Priority Calculator</title>
+  </head>
+  <body>
+    <div id="top-main" class="container">
+      {% block navbar %}
+      {% endblock %}
+
+      {% if user.is_authenticated %}
+      {% include "navbar_auth.html" %}
+      {% else %}
+      {% include "navbar_nonauth.html" %}
+      {% endif %}
+    </div>
+
+    <div id="left-main" class="container">
+    </div>
+
+    <div id="right-main" class="container">
+    </div>
+
+  </body>
+
+</html>

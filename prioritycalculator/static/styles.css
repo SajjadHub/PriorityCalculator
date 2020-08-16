@@ -1,6 +1,14 @@
-body {
+html, body {
   font-family: "Times New Roman", Times, serif;
-  overflow-x: hidden;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+
+#footer-div {
+  padding: 0;
 }
 
 #login-button {
@@ -26,4 +34,55 @@ body {
 
 #project-row:hover {
   cursor: pointer;
+}
+
+#assignment-list, #assignment-intake {
+  margin: 15px;
+}
+
+#top-main {
+  background-size: cover;
+  background: url("https://liv.rent/blog/wp-content/uploads/2019/08/UBC-nest-770x400.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 770px;
+  position: relative;
+}
+
+#title-head {
+  top: 50%;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+#footer-content {
+  top: 30%;
+  margin: auto auto;
+  width: 100%;
+  position: absolute;
+}
+
+#footer-trademark {
+  bottom: 0;
+  margin: auto auto;
+  width 100%;
+  position: absolute;
+  text-align: center;
+}
+
+#footer-main {
+  background-color: rgb(193,154,107);
+  height: 300px;
+  position: relative;
+}
+
+#outreach-list {
+  list-style: none;
+}
+
+#right-main {
+  min-height: 770px;
 }

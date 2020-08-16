@@ -4,38 +4,43 @@
 
 
 {% block content %}
-<div class="row">
-  <h1 id="project-header">Projects</h1>
-</div>
-<div class="row">
-  <div class="col">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Project Name</th>
-          <th>Project Weight</th>
-        </tr>
-      </thead>
-      {% for item in data %}
+<div class="container-fluid">
+  <div class="row">
+    <h1 id="project-header">Projects</h1>
+  </div>
+  <br>
+  <br>
+  
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Project Name</th>
+            <th>Project Weight</th>
+          </tr>
+        </thead>
+        {% for item in data %}
         <tbody>
           <tr id="project-row" data-href="{% url "assignment_intake" project=item.name %}">
             <td>{{ item.name }}</td>
             <td>{{ item.weight }}</td>
           </tr>
         </tbody>
-      {% endfor %}
-    </table>
-  </div>
+        {% endfor %}
+      </table>
+    </div>
 
-  <div class="col">
+    <div class="col">
 
-    <form action="" method='POST'>
-      {% csrf_token %}
-      {{ form|crispy }}
-      <input class="btn btn-dark" name="pro" type="submit" value='Add another project' />
-      <input class="btn btn-dark" name="assig" type="submit" value='Add assignment' />
-    </form>
+      <form action="" method='POST'>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input class="btn btn-dark" name="pro" type="submit" value='Add another project' />
+        <input class="btn btn-dark" name="assig" type="submit" value='Add assignment' />
+      </form>
 
+    </div>
   </div>
 </div>
 

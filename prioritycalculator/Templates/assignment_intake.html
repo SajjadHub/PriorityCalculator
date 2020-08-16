@@ -4,42 +4,44 @@
 
 
 {% block content %}
-<div class="row">
-  <h1 id="project-header">{{ project }}</h1>
-</div>
-<div class="row">
-  <div class="col">
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Assignment Name</th>
-          <th>Weight</th>
-          <th>Deadline</th>
-          <th>Priority</th>
-          <th>Completed</th>
-        </tr>
-      </thead>
-      {% for item in data %}
-      <tbody>
-        <td>{{ item.name }}</td>
-        <td>{{ item.weight }}</td>
-        <td>{{ item.deadline }}</td>
-        <td>{{ item.priority }}</td>
-        <td>{{ item.completed }}</td>
-      </tbody>
-      {% endfor %}
-    </table>
+<div id="course-container" class="container-fluid">
+  <div class="row">
+    <h1 id="project-header">{{ project }}</h1>
   </div>
+  <div class="row">
+    <div id="assignment-list" class="col">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Assignment Name</th>
+            <th>Weight</th>
+            <th>Deadline</th>
+            <th>Priority</th>
+            <th>Completed</th>
+          </tr>
+        </thead>
+        {% for item in data %}
+        <tbody>
+          <td>{{ item.name }}</td>
+          <td>{{ item.weight }}</td>
+          <td>{{ item.deadline }}</td>
+          <td>{{ item.priority }}</td>
+          <td>{{ item.completed }}</td>
+        </tbody>
+        {% endfor %}
+      </table>
+    </div>
 
 
-  <div class="col">
-    <form action="." method='POST'>
-      {{ form|crispy }}
-      {% csrf_token %}
-      <input class="btn btn-dark" type="submit" value='Add another assignment' />
-    <a class="btn btn-dark" href="{% url 'intake' %}">Add another project</a>
-    </form>
-    <br>
+    <div id="assignment-intake" class="col">
+      <form action="." method='POST'>
+        {{ form|crispy }}
+        {% csrf_token %}
+        <input class="btn btn-dark" type="submit" value='Add another assignment' />
+        <a class="btn btn-dark" href="{% url 'intake' %}">Add another project</a>
+      </form>
+      <br>
+    </div>
   </div>
 </div>
 

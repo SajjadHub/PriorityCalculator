@@ -1,0 +1,20 @@
+{% block navbar %}
+<div class="d-flex flex-row-reverse fixed-top">
+  <nav class="navbar navbar-expand-sm">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link btn-outline-secondary font-weight-bold" id="home-link" href="{% url 'home' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a id="signup-link" class="nav-link btn-outline-secondary font-weight-bold" href="{% url 'signup' %}">Signup</a>
+      </li>
+      <li class="nav-item">
+        <a id="login-link" class="nav-link btn-outline-secondary font-weight-bold" href="{% url 'login' %}">Login</a>
+      </li>
+
+
+    </ul>
+  </nav>
+</div>
+{% endblock %}
